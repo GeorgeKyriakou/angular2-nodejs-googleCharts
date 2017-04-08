@@ -1,0 +1,23 @@
+
+<form class="well">
+  <div class="form-group">
+    <input type="text" [(ngModel)]= "start" name="start" class ="form-control" placeholder="Log starting point 10:00" /><br />
+    <input type="text" [(ngModel)]= "end" name="end" class ="form-control" placeholder="Log end point 12:00" />
+    <div><hr />
+      <input type="button" (click)="getSomeLogs(start,end)" value="show logs" class="btn btn-info" />
+    </div>
+  </div>
+</form>
+
+
+<form class="well">
+  logs:
+  <div *ngFor="let log of logs; let i = index">
+    {{log}}
+  </div>
+    <h2>Motion detected log chart </h2>
+    <div id="scatter_chart" [chartData]="scatter_ChartData" [chartOptions] = "scatter_ChartOptions" chartType="ScatterChart" GoogleChart></div>
+    <p>*0 value is a default detection</p>
+</form>
+
+<!--[chartData]="scatter_ChartData" -->
